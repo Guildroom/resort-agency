@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary */
+  --color-primary: #1C1B1A;
+  --color-secondary: #E0D1BC;
+  
+  /* Backgrounds */
+  --color-background: #F9F7F3;
+  --color-surface: #FFFFFF;
+  
+  /* Accents */
+  --color-accent-gold: #C8A97E;
+  --color-forest-green: #4D5D4A;
+  --color-olive: #707A55;
+  
+  /* Supporting */
+  --color-light-beige: #F2E8DA;
+  --color-border: #D7CCBE;
+  --color-text-secondary: #66615B;
+  
+  /* Mapped for compatibility */
+  --background: var(--color-background);
+  --foreground: var(--color-primary);
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-primary);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--color-accent-gold);
+  color: var(--color-surface);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-olive);
+}
+
+.btn-secondary {
+  border-color: var(--color-border);
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-light-beige);
+  border-color: transparent;
+}
+
+/* Hero section animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s ease-out;
+}
