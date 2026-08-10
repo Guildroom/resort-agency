@@ -57,7 +57,7 @@ export default function Header() {
 
               {bookingDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 pt-2 w-64"
+                  className="absolute top-full right-0 pt-2 w-64"
                 >
                   <div
                     className="rounded-lg border shadow-lg overflow-hidden"
