@@ -56,7 +56,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8"
         >
           {/* Brand Column */}
           <div className="lg:col-span-1">
@@ -189,41 +189,6 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4
-              className="text-lg font-semibold mb-4"
-              style={{ color: "var(--color-surface)" }}
-            >
-              Newsletter
-            </h4>
-            <p
-              className="text-sm mb-4"
-              style={{ color: "var(--color-light-beige)" }}
-            >
-              Stay updated with exclusive offers and resort news
-            </p>
-            <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="px-4 py-3 rounded text-sm focus:outline-none focus:ring-2 transition-all"
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  color: "var(--color-surface)",
-                  borderColor: "rgba(200, 169, 126, 0.3)",
-                }}
-              />
-              <button
-                type="submit"
-                className="btn-primary flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-sm transition-all duration-300"
-              >
-                Subscribe
-                <Send size={16} />
-              </button>
-            </form>
           </div>
         </motion.div>
 
