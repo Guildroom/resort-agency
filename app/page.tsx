@@ -13,7 +13,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="background.gif"
-            alt="Lanscade Resort Background"
+            alt="L'escapade Resort Background"
             fill
             className="object-cover"
             unoptimized
@@ -29,7 +29,7 @@ export default function Home() {
             className="text-6xl md:text-8xl font-bold mb-6 tracking-wide"
             style={{ color: 'var(--color-surface)' }}
           >
-            Lanscade
+            L'escapade
           </h1>
           
           <p 
@@ -43,7 +43,7 @@ export default function Home() {
             className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
             style={{ color: 'var(--color-surface)' }}
           >
-            Nestled in the heart of pristine wilderness, Lanscade offers an unparalleled escape 
+            Nestled in the heart of pristine wilderness, L'escapade offers an unparalleled escape 
             where modern comfort harmonizes with natural beauty. Experience tranquility like never before.
           </p>
         </div>

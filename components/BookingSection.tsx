@@ -10,7 +10,7 @@ export default function BookingSection() {
       className="relative w-full px-6 md:px-12 lg:px-24 py-20 md:py-32 overflow-hidden"
       style={{ 
         backgroundColor: "var(--color-forest-green)",
-        backgroundImage: "url('/hero/pexels-rebornfilmes-27624001.jpg')",
+        backgroundImage: "url('/hero/BR0A9579.jpg')",
         backgroundPosition: "right center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat"
@@ -37,7 +37,7 @@ export default function BookingSection() {
               className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
               style={{ color: "var(--color-surface)" }}
             >
-              Ready to Experience Lanscade?
+              Ready to Experience L'escapade?
             </h2>
             <p
               className="text-base md:text-lg leading-relaxed mb-8"

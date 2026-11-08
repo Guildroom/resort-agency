@@ -1,13 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-
-const rooms = [
-  { id: "1", name: "Villa", price: 250 },
-  { id: "2", name: "Bungalow", price: 380 },
-];
+import { rooms, formatPrice } from "@/lib/rooms";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,15 +26,18 @@ export default function Header() {
         borderColor: "var(--color-border)",
       }}
     >
-      <nav className="mx-auto px-2 md:px-4 lg:px-6 py-4">
+      <nav className="mx-auto px-2 md:px-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <h1
-              className="text-2xl md:text-3xl font-bold tracking-wide"
-              style={{ color: "var(--color-accent-gold)" }}
-            >
-              Lanscade
-            </h1>
+            <div className="relative w-32 h-16 md:w-36 md:h-20">
+              <Image
+                src="/Logo.png"
+                alt="Lanscade Resort"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -92,7 +92,7 @@ export default function Header() {
                             className="text-xs font-semibold"
                             style={{ color: "var(--color-accent-gold)" }}
                           >
-                            ${room.price}
+                            {formatPrice(room.price)}
                           </span>
                         </div>
                       </Link>
@@ -102,12 +102,20 @@ export default function Header() {
               )}
             </div>
 
-            <button
-              onClick={scrollToFooter}
-              className="text-base font-medium transition-colors duration-300"
+            <Link
+              href="/about"
+              className="text-base font-medium transition-colors duration-300 cursor-pointer"
               style={{ color: "var(--color-primary)" }}
             >
-              About Us
+              About
+            </Link>
+
+            <button
+              onClick={scrollToFooter}
+              className="text-base font-medium transition-colors duration-300 cursor-pointer"
+              style={{ color: "var(--color-primary)" }}
+            >
+              Contact
             </button>
           </div>
 
@@ -170,7 +178,7 @@ export default function Header() {
                           className="font-semibold"
                           style={{ color: "var(--color-accent-gold)" }}
                         >
-                          ${room.price}
+                          {formatPrice(room.price)}
                         </span>
                       </Link>
                     ))}
@@ -178,12 +186,21 @@ export default function Header() {
                 )}
               </div>
 
+              <Link
+                href="/about"
+                className="text-base font-medium py-2 text-left"
+                style={{ color: "var(--color-primary)" }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+
               <button
                 onClick={scrollToFooter}
                 className="text-base font-medium py-2 text-left"
                 style={{ color: "var(--color-primary)" }}
               >
-                About Us
+                Contact
               </button>
             </div>
           </div>

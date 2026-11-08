@@ -2,22 +2,22 @@
 
 :root {
   /* Primary */
-  --color-primary: #1C1B1A;
-  --color-secondary: #E0D1BC;
+  --color-primary: #3C2817;
+  --color-secondary: #614633;
   
   /* Backgrounds */
-  --color-background: #F9F7F3;
+  --color-background: #F5F1E8;
   --color-surface: #FFFFFF;
   
   /* Accents */
-  --color-accent-gold: #C8A97E;
-  --color-forest-green: #4D5D4A;
-  --color-olive: #707A55;
+  --color-accent-gold: #8F9F8F;
+  --color-forest-green: #614633;
+  --color-olive: #8F9F8F;
   
   /* Supporting */
-  --color-light-beige: #F2E8DA;
-  --color-border: #D7CCBE;
-  --color-text-secondary: #66615B;
+  --color-light-beige: #CEDAC9;
+  --color-border: #B3A389;
+  --color-text-secondary: #614633;
   
   /* Mapped for compatibility */
   --background: var(--color-background);

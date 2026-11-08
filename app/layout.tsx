@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lanscade Resort - Where Nature Meets Luxury",
-  description: "Experience unparalleled luxury in pristine wilderness. Lanscade Resort offers world-class amenities, sustainable practices, and breathtaking mountain vistas for the ultimate escape.",
+  title: "L'escapade Resort - Where Nature Meets Luxury",
+  description: "Experience unparalleled luxury in pristine wilderness. L'escapade Resort offers world-class amenities, sustainable practices, and breathtaking mountain vistas for the ultimate escape.",
 };
 
 export default function RootLayout({

@@ -173,128 +173,103 @@ export default function BookingPage() {
                   onClick={(e) => {
                     if (soldOut) e.preventDefault();
                   }}
-                  className={`block w-full text-left rounded-lg border p-4 md:p-10 lg:p-12 transition-all duration-300 ${
-                    soldOut ? "cursor-not-allowed" : "cursor-pointer hover:shadow-md"
+                  className={`block w-full text-left rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 ${
+                    soldOut ? "cursor-not-allowed opacity-60" : "cursor-pointer hover:-translate-y-0.5"
                   }`}
                   style={{
                     backgroundColor: "var(--color-surface)",
-                    borderColor: "var(--color-border)",
-                    opacity: soldOut ? 0.6 : 1,
+                    border: "1px solid var(--color-border)",
                   }}
                 >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-10">
-                    {/* Room Info */}
-                    <div className="flex-1 min-w-0 flex flex-col md:flex-row items-start gap-4 md:gap-8">
-                      <div className="flex-shrink-0 w-full md:w-40 h-48 md:h-40 lg:w-64 lg:h-64 rounded-lg overflow-hidden relative md:self-start -mx-4 md:mx-0">
-                        <RoomCarousel
-                          images={getRoomImages(room)}
-                          roomName={room.name}
-                          compact
-                        />
-                      </div>
-                      <div className="min-w-0 w-full">
-                        <p
-                          className="font-semibold text-xl md:text-3xl lg:text-4xl mb-2 md:mb-3"
-                          style={{ color: "var(--color-primary)" }}
-                        >
-                          {room.name}
-                        </p>
-                        <p
-                          className="text-sm md:text-lg leading-relaxed md:leading-loose mb-3 md:mb-4"
-                          style={{ color: "var(--color-text-secondary)" }}
-                        >
-                          {room.description}
-                        </p>
-                        <p
-                          className="flex items-center gap-2 text-sm md:text-base"
-                          style={{ color: "var(--color-text-secondary)" }}
-                        >
-                          <Users size={16} className="md:hidden" style={{ color: "var(--color-accent-gold)" }} />
-                          <Users size={18} className="hidden md:block" style={{ color: "var(--color-accent-gold)" }} />
-                          Up to {room.occupancy} guests
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Price / Availability / Add to Cart */}
-                    <div className="flex flex-col gap-4 w-full md:w-auto md:items-end">
-                      <div className="text-left md:text-right">
-                        <span
-                          className="text-2xl md:text-4xl lg:text-5xl font-bold"
-                          style={{ color: "var(--color-accent-gold)" }}
-                        >
-                          {formatPrice(room.price)}
-                        </span>
-                        <span
-                          className="text-sm md:text-lg"
-                          style={{ color: "var(--color-text-secondary)" }}
-                        >
-                          {" "}
-                          / night
-                        </span>
-                      </div>
-
-                      <div className="flex md:justify-end">
+                  <div className="flex flex-col md:flex-row">
+                    {/* Left side: Image Carousel */}
+                    <div className="relative w-full md:w-72 lg:w-96 h-64 md:h-auto shrink-0 overflow-hidden">
+                      {/* Availability Badge Overlay */}
+                      <div className="absolute top-4 left-4 z-10">
                         {soldOut ? (
                           <span
-                            className="inline-flex items-center gap-2 text-sm md:text-base font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap"
-                            style={{
-                              backgroundColor: "rgba(220, 38, 38, 0.1)",
-                              color: "#DC2626",
-                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md"
+                            style={{ backgroundColor: "rgba(220, 38, 38, 0.95)", color: "#FFFFFF" }}
                           >
-                            <Ban size={16} className="md:hidden" />
-                            <Ban size={18} className="hidden md:block" />
+                            <Ban size={14} />
                             Sold out
                           </span>
                         ) : lowStock ? (
                           <span
-                            className="inline-flex items-center text-sm md:text-base font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap"
-                            style={{
-                              backgroundColor: "rgba(217, 119, 6, 0.12)",
-                              color: "#B45309",
-                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md"
+                            style={{ backgroundColor: "rgba(217, 119, 6, 0.95)", color: "#FFFFFF" }}
                           >
                             Only {available} left!
                           </span>
                         ) : (
                           <span
-                            className="inline-flex items-center text-sm md:text-base font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap"
-                            style={{
-                              backgroundColor: "rgba(77, 93, 74, 0.12)",
-                              color: "var(--color-forest-green)",
-                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md"
+                            style={{ backgroundColor: "var(--color-accent-gold)", color: "var(--color-surface)" }}
                           >
-                            {available} rooms available
+                            {available} available
                           </span>
                         )}
                       </div>
+                      <RoomCarousel
+                        images={getRoomImages(room)}
+                        roomName={room.name}
+                        compact
+                      />
+                    </div>
 
-                      <div
-                        className="w-full md:w-auto"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                        }}
-                        onKeyDown={(e) => {
-                          e.stopPropagation();
-                        }}
+                    {/* Right side: Room Info & Actions */}
+                    <div className="flex-1 p-6 md:p-8 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3" style={{ color: "var(--color-primary)" }}>
+                          {room.name}
+                        </h3>
+                        <p className="text-sm md:text-base leading-relaxed mb-4" style={{ color: "var(--color-text-secondary)" }}>
+                          {room.content.summary}
+                        </p>
+                        <div className="flex items-center gap-2 text-sm md:text-base" style={{ color: "var(--color-text-secondary)" }}>
+                          <Users size={18} style={{ color: "var(--color-accent-gold)" }} />
+                          <span>Up to {room.occupancy} guests</span>
+                        </div>
+                      </div>
+
+                      {/* Bottom Row: Price & Add to Cart */}
+                      <div 
+                        className="mt-6 pt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                        style={{ borderColor: "var(--color-border)" }}
                       >
-                        {!soldOut && (
-                          <AddToCartButton
-                            roomId={room.id}
-                            onAdd={(roomId, qty) => {
-                              const room = rooms.find((r) => r.id === roomId);
-                              if (room) {
-                                handleAdded(
-                                  qty > 1
-                                    ? `${qty} × ${room.name} added to cart`
-                                    : `${room.name} added to cart`
-                                );
-                              }
-                            }}
-                          />
-                        )}
+                        <div>
+                          <span className="text-xl md:text-2xl lg:text-3xl font-bold" style={{ color: "var(--color-accent-gold)" }}>
+                            {formatPrice(room.price)}
+                          </span>
+                          <span className="text-xs md:text-sm ml-1" style={{ color: "var(--color-text-secondary)" }}>
+                            / night
+                          </span>
+                        </div>
+                        <div
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                          }}
+                          onKeyDown={(e) => {
+                            e.stopPropagation();
+                          }}
+                        >
+                          {!soldOut && (
+                            <AddToCartButton
+                              roomId={room.id}
+                              onAdd={(roomId, qty) => {
+                                const room = rooms.find((r) => r.id === roomId);
+                                if (room) {
+                                  handleAdded(
+                                    qty > 1
+                                      ? `${qty} × ${room.name} added to cart`
+                                      : `${room.name} added to cart`
+                                  );
+                                }
+                              }}
+                            />
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Users, Bed } from "lucide-react";
 import { getRoomById, getRoomImages, formatPrice } from "@/lib/rooms";
 import CartSidebar from "@/components/CartSidebar";
 import AddToCartButton from "@/components/AddToCartButton";
+import ImageGalleryGrid from "@/components/ImageGalleryGrid";
 
 interface RoomDetailClientProps {
   roomId: string;
@@ -46,10 +46,16 @@ export default function RoomDetailClient({ roomId }: RoomDetailClientProps) {
             {room.name}
           </h1>
           <p
+            className="text-xl md:text-2xl italic mb-6"
+            style={{ color: "var(--color-accent-gold)" }}
+          >
+            {room.content.tagline}
+          </p>
+          <p
             className="text-base md:text-lg mb-6"
             style={{ color: "var(--color-text-secondary)" }}
           >
-            {room.description}
+            {room.content.summary}
           </p>
 
           <div className="flex items-center gap-6 text-sm md:text-base">
@@ -70,24 +76,94 @@ export default function RoomDetailClient({ roomId }: RoomDetailClientProps) {
           </div>
         </div>
 
-        {images.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            {images.map((src, index) => (
-              <div
-                key={index}
-                className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden"
-                style={{ backgroundColor: "var(--color-border)" }}
-              >
-                <Image
-                  src={src}
-                  alt={`${room.name} - Image ${index + 1}`}
-                  fill
-                  className="object-cover"
-                />
+        <ImageGalleryGrid images={images} roomName={room.name} />
+
+        <div
+          className="mb-8 p-6 md:p-8 rounded-lg border"
+          style={{
+            backgroundColor: "var(--color-surface)",
+            borderColor: "var(--color-border)",
+          }}
+        >
+          <h2
+            className="text-2xl font-semibold mb-4"
+            style={{ color: "var(--color-primary)" }}
+          >
+            About This {room.name}
+          </h2>
+          {room.content.mainDescription.split('\n\n').map((paragraph, i) => (
+            <p
+              key={i}
+              className="text-base leading-relaxed mb-4 last:mb-0"
+              style={{ color: "var(--color-text-secondary)" }}
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div
+          className="mb-8 p-6 md:p-8 rounded-lg border"
+          style={{
+            backgroundColor: "var(--color-surface)",
+            borderColor: "var(--color-border)",
+          }}
+        >
+          <h2
+            className="text-2xl font-semibold mb-6"
+            style={{ color: "var(--color-primary)" }}
+          >
+            The Space & Experience
+          </h2>
+          <div className="space-y-4">
+            {room.content.spaces.map((space, i) => (
+              <div key={i}>
+                <h3
+                  className="text-lg font-semibold mb-2"
+                  style={{ color: "var(--color-accent-gold)" }}
+                >
+                  {space.title}
+                </h3>
+                <p
+                  className="text-base leading-relaxed"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
+                  {space.description}
+                </p>
               </div>
             ))}
           </div>
-        )}
+        </div>
+
+        <div
+          className="mb-8 p-6 md:p-8 rounded-lg border"
+          style={{
+            backgroundColor: "var(--color-surface)",
+            borderColor: "var(--color-border)",
+          }}
+        >
+          <h2
+            className="text-2xl font-semibold mb-6"
+            style={{ color: "var(--color-primary)" }}
+          >
+            Features & Amenities
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {room.content.features.map((feature, i) => (
+              <div key={i} className="flex gap-3">
+                <span
+                  className="font-semibold shrink-0"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  {feature.label}:
+                </span>
+                <span style={{ color: "var(--color-text-secondary)" }}>
+                  {feature.value}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div
           className="mb-8 p-6 md:p-8 rounded-lg border"

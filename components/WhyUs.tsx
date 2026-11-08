@@ -73,7 +73,7 @@ export default function WhyUs() {
             className="text-3xl md:text-4xl font-bold mb-4"
             style={{ color: "var(--color-primary)" }}
           >
-            Why Choose Lanscade
+            Why Choose L'escapade
           </h2>
           <p
             className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed"

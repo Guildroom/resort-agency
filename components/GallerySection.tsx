@@ -4,13 +4,19 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const galleryImages = [
-  "pexels-aflah-1622600-10585565.jpg",
-  "pexels-aybus-275580280-12968318.jpg",
-  "pexels-cripsdog-19977303.jpg",
-  "pexels-keeganjchecks-14524357.jpg",
-  "pexels-manishjangid-30195792.jpg",
-  "pexels-nabokovin-34460122.jpg",
-  "pexels-rebornfilmes-27624001.jpg",
+  "BR0A9579.jpg",
+  "BR0A9586.jpg",
+  "BR0A9615.jpg",
+  "BR0A9643.jpg",
+  "BR0A9685.jpg",
+  "BR0A9697.jpg",
+  "BR0A9700.jpg",
+  "BR0A9712.jpg",
+  "BR0A9717.jpg",
+  "BR0A9732.jpg",
+  "BR0A9753.jpg",
+  "BR0A9774.jpg",
+  "BR0A9876.jpg",
 ];
 
 export default function GallerySection() {
@@ -31,7 +37,7 @@ export default function GallerySection() {
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
           style={{ color: "var(--color-primary)" }}
         >
-          Explore Lanscade
+          Explore L'escapade
         </h2>
         <p
           className="text-base md:text-lg"
@@ -56,7 +62,7 @@ export default function GallerySection() {
                 <div className="relative w-80 md:w-96 h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src={`/hero/${image}`}
-                    alt={`Lanscade Resort Gallery ${index + 1}`}
+                    alt={`L'escapade Resort Gallery ${index + 1}`}
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-110"
                     sizes="(max-width: 768px) 320px, 384px"

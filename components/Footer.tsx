@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const socialLinks = [
@@ -61,12 +62,14 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/">
-              <h3
-                className="text-2xl md:text-3xl font-bold mb-3"
-                style={{ color: "var(--color-accent-gold)" }}
-              >
-                Lanscade
-              </h3>
+              <div className="relative w-48 h-20 mb-3">
+                <Image
+                  src="/Logo.png"
+                  alt="L'escapade Resort"
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
             </Link>
             <p
               className="text-sm mb-4"
@@ -144,7 +147,9 @@ export default function Footer() {
                   className="text-sm"
                   style={{ color: "var(--color-light-beige)" }}
                 >
-                  123 Serenity Ridge, Whispering Pines
+                  Alassari, Desa Pacung, Kec. Tejakula<br />
+                  Kabupaten Buleleng, Bali 81173<br />
+                  Indonesia
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -205,7 +210,7 @@ export default function Footer() {
             className="text-sm"
             style={{ color: "var(--color-light-beige)" }}
           >
-            © 2026 Lanscade Resort. All rights reserved.
+            © 2026 L'escapade Resort. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link

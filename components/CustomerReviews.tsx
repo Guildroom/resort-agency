@@ -45,7 +45,7 @@ const reviews: Review[] = [
     name: "James Rodriguez",
     location: "Miami, USA",
     rating: 5,
-    text: "Lanscade exceeded all expectations. The attention to detail, stunning views, and impeccable service made this the best vacation we've ever had.",
+    text: "L'escapade exceeded all expectations. The attention to detail, stunning views, and impeccable service made this the best vacation we've ever had.",
     initial: "J"
   },
   {
@@ -61,7 +61,7 @@ const reviews: Review[] = [
     name: "Michael Thompson",
     location: "London, UK",
     rating: 5,
-    text: "We've stayed at luxury resorts around the world, but Lanscade stands out. The combination of comfort, nature, and exceptional service is unmatched.",
+    text: "We've stayed at luxury resorts around the world, but L'escapade stands out. The combination of comfort, nature, and exceptional service is unmatched.",
     initial: "M"
   },
   {
@@ -93,7 +93,7 @@ const reviews: Review[] = [
     name: "Robert Williams",
     location: "Chicago, USA",
     rating: 5,
-    text: "Highly recommend Lanscade for anyone seeking peace and luxury. The staff's hospitality and the beautiful setting made our anniversary truly special.",
+    text: "Highly recommend L'escapade for anyone seeking peace and luxury. The staff's hospitality and the beautiful setting made our anniversary truly special.",
     initial: "R"
   }
 ];
@@ -156,7 +156,7 @@ export default function CustomerReviews() {
             className="text-base md:text-lg"
             style={{ color: "var(--color-text-secondary)" }}
           >
-            Discover why travelers choose Lanscade for their luxury escape
+            Discover why travelers choose L'escapade for their luxury escape
           </p>
         </motion.div>
 

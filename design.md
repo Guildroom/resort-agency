@@ -4,19 +4,19 @@
 
 ### Primary Colors
 
-#### Charcoal (Primary)
-- **Hex:** `#1C1B1A`
-- **Usage:** Primary text, headers, main UI elements
+#### Dark Timber (Primary)
+- **Hex:** `#3C2817`
+- **Usage:** Primary text, headers, navigation, footer, buttons
 
-#### Warm Beige (Secondary)
-- **Hex:** `#E0D1BC`
-- **Usage:** Secondary elements, subtle backgrounds, accents
+#### Walnut Brown (Secondary)
+- **Hex:** `#614633`
+- **Usage:** Secondary buttons, links, accents, secondary text
 
 ### Background Colors
 
-#### Background
-- **Hex:** `#F9F7F3`
-- **Usage:** Main page background, off-white base
+#### Natural Cream (Background)
+- **Hex:** `#F5F1E8`
+- **Usage:** Main page background, content areas
 
 #### Surface
 - **Hex:** `#FFFFFF`
@@ -24,49 +24,37 @@
 
 ### Accent Colors
 
-#### Accent Gold
-- **Hex:** `#C8A97E`
-- **Usage:** Highlights, call-to-action elements, premium features
+#### Sage Green (Accent)
+- **Hex:** `#8F9F8F`
+- **Usage:** Highlights, badges, decorative elements, primary buttons
 
-#### Forest Green
-- **Hex:** `#4D5D4A`
-- **Usage:** Success states, nature-themed elements, secondary actions
-
-#### Olive
-- **Hex:** `#707A55`
-- **Usage:** Tertiary accents, muted highlights
+#### Soft Sage
+- **Hex:** `#CEDAC9`
+- **Usage:** Subtle sections, cards, hover backgrounds
 
 ### Supporting Colors
 
-#### Light Beige
-- **Hex:** `#F2E8DA`
-- **Usage:** Hover states, subtle backgrounds, disabled states
-
-#### Border
-- **Hex:** `#D7CCBE`
-- **Usage:** Dividers, borders, outlines
-
-#### Text Secondary
-- **Hex:** `#66615B`
-- **Usage:** Secondary text, captions, metadata
+#### Warm Sand
+- **Hex:** `#B3A389`
+- **Usage:** Borders, muted backgrounds, dividers
 
 ## Color Usage Guidelines
 
 ### Text
-- **Primary Text:** Charcoal `#1C1B1A`
-- **Secondary Text:** Text Secondary `#66615B`
+- **Primary Text:** Dark Timber `#3C2817`
+- **Secondary Text:** Walnut Brown `#614633`
 - **On Dark Backgrounds:** Surface `#FFFFFF`
 
 ### Backgrounds
-- **Page Background:** Background `#F9F7F3`
+- **Page Background:** Natural Cream `#F5F1E8`
 - **Content Containers:** Surface `#FFFFFF`
-- **Subtle Sections:** Light Beige `#F2E8DA`
+- **Subtle Sections:** Soft Sage `#CEDAC9`
 
 ### Interactive Elements
-- **Primary Buttons:** Accent Gold `#C8A97E`
-- **Secondary Buttons:** Forest Green `#4D5D4A`
-- **Hover States:** Olive `#707A55` or Light Beige `#F2E8DA`
-- **Borders:** Border `#D7CCBE`
+- **Primary Buttons:** Sage Green `#8F9F8F`
+- **Secondary Buttons:** Walnut Brown `#614633`
+- **Hover States:** Sage Green `#8F9F8F` or Soft Sage `#CEDAC9`
+- **Borders:** Warm Sand `#B3A389`
 
 ### Accessibility
 - Ensure sufficient contrast ratios (WCAG AA minimum 4.5:1 for normal text)
@@ -78,21 +66,21 @@
 ```css
 :root {
   /* Primary */
-  --color-primary: #1C1B1A;
-  --color-secondary: #E0D1BC;
+  --color-primary: #3C2817;
+  --color-secondary: #614633;
   
   /* Backgrounds */
-  --color-background: #F9F7F3;
+  --color-background: #F5F1E8;
   --color-surface: #FFFFFF;
   
   /* Accents */
-  --color-accent-gold: #C8A97E;
-  --color-forest-green: #4D5D4A;
-  --color-olive: #707A55;
+  --color-accent-gold: #8F9F8F;
+  --color-forest-green: #614633;
+  --color-olive: #8F9F8F;
   
   /* Supporting */
-  --color-light-beige: #F2E8DA;
-  --color-border: #D7CCBE;
-  --color-text-secondary: #66615B;
+  --color-light-beige: #CEDAC9;
+  --color-border: #B3A389;
+  --color-text-secondary: #614633;
 }
 ```
