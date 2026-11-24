@@ -167,7 +167,7 @@ export default function CheckoutPage() {
             }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <ShoppingCart size={24} style={{ color: "var(--color-accent-gold)" }} />
+              <ShoppingCart size={24} style={{ color: "var(--color-walnut)" }} />
               <h3
                 className="text-lg md:text-xl font-semibold"
                 style={{ color: "var(--color-primary)" }}
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
                     </div>
                     <span
                       className="font-bold"
-                      style={{ color: "var(--color-accent-gold)" }}
+                      style={{ color: "var(--color-walnut)" }}
                     >
                       {formatPrice(lineTotal)}
                     </span>
@@ -221,7 +221,7 @@ export default function CheckoutPage() {
                 </span>
                 <span
                   className="font-bold text-xl"
-                  style={{ color: "var(--color-accent-gold)" }}
+                  style={{ color: "var(--color-espresso)" }}
                 >
                   {formatPrice(subtotalPerNight)}
                 </span>
@@ -238,7 +238,7 @@ export default function CheckoutPage() {
             }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <Calendar size={24} style={{ color: "var(--color-accent-gold)" }} />
+              <Calendar size={24} style={{ color: "var(--color-walnut)" }} />
               <h3
                 className="text-lg md:text-xl font-semibold"
                 style={{ color: "var(--color-primary)" }}
@@ -311,7 +311,7 @@ export default function CheckoutPage() {
             }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <User size={24} style={{ color: "var(--color-accent-gold)" }} />
+              <User size={24} style={{ color: "var(--color-walnut)" }} />
               <h3
                 className="text-lg md:text-xl font-semibold"
                 style={{ color: "var(--color-primary)" }}
@@ -382,7 +382,7 @@ export default function CheckoutPage() {
             }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <Users size={24} style={{ color: "var(--color-accent-gold)" }} />
+              <Users size={24} style={{ color: "var(--color-walnut)" }} />
               <h3
                 className="text-lg md:text-xl font-semibold"
                 style={{ color: "var(--color-primary)" }}
@@ -436,7 +436,7 @@ export default function CheckoutPage() {
             }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <MessageSquare size={24} style={{ color: "var(--color-accent-gold)" }} />
+              <MessageSquare size={24} style={{ color: "var(--color-walnut)" }} />
               <h3
                 className="text-lg md:text-xl font-semibold"
                 style={{ color: "var(--color-primary)" }}
@@ -474,7 +474,7 @@ export default function CheckoutPage() {
                 </p>
                 <span
                   className="text-2xl md:text-3xl font-bold"
-                  style={{ color: "var(--color-accent-gold)" }}
+                  style={{ color: "var(--color-espresso)" }}
                 >
                   {formatPrice(total)}
                 </span>

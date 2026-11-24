@@ -64,9 +64,9 @@ export default async function BookingConfirmationPage({ params, searchParams }: 
         >
           <div
             className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
-            style={{ backgroundColor: "rgba(77, 93, 74, 0.15)" }}
+            style={{ backgroundColor: "rgba(53, 75, 59, 0.15)" }}
           >
-            <CheckCircle2 size={32} style={{ color: "var(--color-forest-green)" }} />
+            <CheckCircle2 size={32} style={{ color: "var(--color-forest)" }} />
           </div>
 
           <h1
@@ -224,7 +224,7 @@ export default async function BookingConfirmationPage({ params, searchParams }: 
               </span>
               <span
                 className="font-bold text-xl"
-                style={{ color: "var(--color-accent-gold)" }}
+                style={{ color: "var(--color-espresso)" }}
               >
                 {formatPrice(Number(total))}
               </span>

@@ -38,18 +38,18 @@ export default function CartSidebar() {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="Open cart"
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-transform duration-200 hover:scale-105"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-colors duration-200"
         style={{
-          backgroundColor: "var(--color-accent-gold)",
-          color: "var(--color-surface)",
+          backgroundColor: "var(--color-walnut)",
+          color: "var(--color-linen)",
         }}
       >
         <ShoppingCart size={22} />
         <span
           className="absolute -top-1 -right-1 min-w-5 h-5 px-1.5 rounded-full text-xs font-bold flex items-center justify-center"
           style={{
-            backgroundColor: "var(--color-forest-green)",
-            color: "var(--color-surface)",
+            backgroundColor: "var(--color-forest)",
+            color: "var(--color-linen)",
           }}
         >
           {count}
@@ -62,7 +62,7 @@ export default function CartSidebar() {
         className={`fixed inset-0 z-50 transition-opacity duration-300 ${
           open ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        style={{ backgroundColor: "rgba(28, 27, 26, 0.5)" }}
+        style={{ backgroundColor: "rgba(48, 37, 30, 0.5)" }}
       />
 
       {/* Sidebar / Drawer */}
@@ -82,7 +82,7 @@ export default function CartSidebar() {
           style={{ borderColor: "var(--color-border)" }}
         >
           <div className="flex items-center gap-3">
-            <ShoppingCart size={22} style={{ color: "var(--color-accent-gold)" }} />
+            <ShoppingCart size={22} style={{ color: "var(--color-walnut)" }} />
             <h2
               className="text-lg md:text-xl font-semibold"
               style={{ color: "var(--color-primary)" }}
@@ -92,8 +92,8 @@ export default function CartSidebar() {
             <span
               className="text-xs font-medium px-2 py-0.5 rounded-full"
               style={{
-                backgroundColor: "rgba(200, 169, 126, 0.15)",
-                color: "var(--color-accent-gold)",
+                backgroundColor: "rgba(182, 155, 120, 0.18)",
+                color: "var(--color-walnut)",
               }}
             >
               {count} {count === 1 ? "item" : "items"}
@@ -182,7 +182,7 @@ export default function CartSidebar() {
                   </div>
                   <span
                     className="font-bold"
-                    style={{ color: "var(--color-accent-gold)" }}
+                    style={{ color: "var(--color-walnut)" }}
                   >
                     {formatPrice(lineTotal)}
                   </span>
@@ -208,7 +208,7 @@ export default function CartSidebar() {
             </span>
             <span
               className="text-xl font-bold"
-              style={{ color: "var(--color-accent-gold)" }}
+              style={{ color: "var(--color-espresso)" }}
             >
               {formatPrice(total)}
             </span>

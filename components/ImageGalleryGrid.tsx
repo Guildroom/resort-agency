@@ -45,7 +45,7 @@ export default function ImageGalleryGrid({
                 src={src}
                 alt={`${roomName} - Image ${index + 1}`}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover"
                 sizes="(max-width: 768px) 50vw, 40vw"
               />
 
@@ -53,7 +53,7 @@ export default function ImageGalleryGrid({
                 <div
                   className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
                   style={{
-                    backgroundColor: "rgba(60, 40, 23, 0.75)",
+                    backgroundColor: "rgba(48, 37, 30, 0.78)",
                   }}
                 >
                   <div className="text-center">

@@ -7,7 +7,7 @@ interface FeatureCardProps {
   icon: LucideIcon;
   title: string;
   description: string;
-  stat?: {
+  highlight?: {
     value: string;
     label: string;
   };
@@ -18,7 +18,7 @@ export default function FeatureCard({
   icon: Icon,
   title,
   description,
-  stat,
+  highlight,
   delay = 0,
 }: FeatureCardProps) {
   return (
@@ -27,7 +27,6 @@ export default function FeatureCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      whileHover={{ scale: 1.03, y: -5 }}
       className="group relative p-6 rounded-lg border transition-all duration-300"
       style={{
         backgroundColor: "var(--color-surface)",
@@ -36,12 +35,12 @@ export default function FeatureCard({
     >
       {/* Icon */}
       <div
-        className="mb-4 inline-flex p-3 rounded-full transition-transform duration-300 group-hover:scale-110"
+        className="mb-4 inline-flex p-3 rounded-full"
         style={{ backgroundColor: "var(--color-light-beige)" }}
       >
         <Icon
           size={24}
-          style={{ color: "var(--color-accent-gold)" }}
+          style={{ color: "var(--color-walnut)" }}
           strokeWidth={1.5}
         />
       </div>
@@ -62,20 +61,20 @@ export default function FeatureCard({
         {description}
       </p>
 
-      {/* Optional Stat */}
-      {stat && (
+      {/* Optional Highlight */}
+      {highlight && (
         <div className="mt-4 pt-4 border-t" style={{ borderColor: "var(--color-border)" }}>
           <div
-            className="text-2xl font-bold mb-1"
-            style={{ color: "var(--color-accent-gold)" }}
+            className="text-lg md:text-xl font-semibold mb-1 font-serif"
+            style={{ color: "var(--color-walnut)" }}
           >
-            {stat.value}
+            {highlight.value}
           </div>
           <div
             className="text-xs uppercase tracking-wider"
             style={{ color: "var(--color-text-secondary)" }}
           >
-            {stat.label}
+            {highlight.label}
           </div>
         </div>
       )}
@@ -84,7 +83,7 @@ export default function FeatureCard({
       <div
         className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
-          boxShadow: "0 20px 40px rgba(200, 169, 126, 0.15)",
+          boxShadow: "0 20px 40px rgba(101, 70, 49, 0.12)",
         }}
       />
     </motion.div>

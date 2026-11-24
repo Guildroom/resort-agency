@@ -47,7 +47,7 @@ export default function RoomDetailClient({ roomId }: RoomDetailClientProps) {
           </h1>
           <p
             className="text-xl md:text-2xl italic mb-6"
-            style={{ color: "var(--color-accent-gold)" }}
+            style={{ color: "var(--color-walnut)" }}
           >
             {room.content.tagline}
           </p>
@@ -63,14 +63,14 @@ export default function RoomDetailClient({ roomId }: RoomDetailClientProps) {
               className="flex items-center gap-2"
               style={{ color: "var(--color-text-secondary)" }}
             >
-              <Users size={18} style={{ color: "var(--color-accent-gold)" }} />
+              <Users size={18} style={{ color: "var(--color-walnut)" }} />
               Up to {room.occupancy} guests
             </div>
             <div
               className="flex items-center gap-2"
               style={{ color: "var(--color-text-secondary)" }}
             >
-              <Bed size={18} style={{ color: "var(--color-accent-gold)" }} />
+              <Bed size={18} style={{ color: "var(--color-walnut)" }} />
               {room.total} rooms available
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function RoomDetailClient({ roomId }: RoomDetailClientProps) {
               <div key={i}>
                 <h3
                   className="text-lg font-semibold mb-2"
-                  style={{ color: "var(--color-accent-gold)" }}
+                  style={{ color: "var(--color-walnut)" }}
                 >
                   {space.title}
                 </h3>
@@ -182,7 +182,7 @@ export default function RoomDetailClient({ roomId }: RoomDetailClientProps) {
               </p>
               <span
                 className="text-2xl md:text-3xl font-bold"
-                style={{ color: "var(--color-accent-gold)" }}
+                style={{ color: "var(--color-espresso)" }}
               >
                 {formatPrice(room.price)}
               </span>

@@ -23,9 +23,8 @@ export default function Toast({ show, message, onClose }: ToastProps) {
     <div
       className="fixed bottom-24 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-lg shadow-lg transition-all duration-300"
       style={{
-        backgroundColor: "var(--color-forest-green)",
-        color: "var(--color-surface)",
-        animation: "slideInRight 0.3s ease-out",
+        backgroundColor: "var(--color-forest)",
+        color: "var(--color-linen)",
       }}
     >
       <div

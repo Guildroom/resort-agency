@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const socialLinks = [
   {
@@ -48,7 +48,7 @@ export default function Footer() {
       className="relative w-full border-t"
       style={{
         backgroundColor: "var(--color-primary)",
-        borderColor: "rgba(200, 169, 126, 0.2)",
+        borderColor: "rgba(182, 155, 120, 0.28)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-16 md:py-20">
@@ -64,10 +64,11 @@ export default function Footer() {
             <Link href="/">
               <div className="relative w-48 h-20 mb-3">
                 <Image
-                  src="/Logo.png"
+                  src="/logo.svg"
                   alt="L'escapade Resort"
                   fill
                   className="object-contain object-left"
+                  unoptimized
                 />
               </div>
             </Link>
@@ -92,9 +93,9 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full transition-all duration-300 hover:scale-110"
+                  className="p-2 rounded-full transition-colors duration-300"
                   style={{
-                    backgroundColor: "rgba(200, 169, 126, 0.1)",
+                    backgroundColor: "rgba(182, 155, 120, 0.15)",
                     color: "var(--color-light-beige)",
                   }}
                   aria-label={social.name}
@@ -141,7 +142,7 @@ export default function Footer() {
                 <MapPin
                   size={18}
                   className="flex-shrink-0 mt-0.5"
-                  style={{ color: "var(--color-accent-gold)" }}
+                  style={{ color: "var(--color-bronze)" }}
                 />
                 <span
                   className="text-sm"
@@ -156,7 +157,7 @@ export default function Footer() {
                 <Phone
                   size={18}
                   className="flex-shrink-0 mt-0.5"
-                  style={{ color: "var(--color-accent-gold)" }}
+                  style={{ color: "var(--color-bronze)" }}
                 />
                 <a
                   href="tel:+15550123456"
@@ -170,7 +171,7 @@ export default function Footer() {
                 <Mail
                   size={18}
                   className="flex-shrink-0 mt-0.5"
-                  style={{ color: "var(--color-accent-gold)" }}
+                  style={{ color: "var(--color-bronze)" }}
                 />
                 <a
                   href="mailto:reservations@lanscade.com"
@@ -184,7 +185,7 @@ export default function Footer() {
                 <Clock
                   size={18}
                   className="flex-shrink-0 mt-0.5"
-                  style={{ color: "var(--color-accent-gold)" }}
+                  style={{ color: "var(--color-bronze)" }}
                 />
                 <span
                   className="text-sm"
@@ -204,13 +205,13 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4"
-          style={{ borderColor: "rgba(255, 255, 255, 0.1)" }}
+          style={{ borderColor: "rgba(240, 231, 218, 0.12)" }}
         >
           <p
             className="text-sm"
             style={{ color: "var(--color-light-beige)" }}
           >
-            © 2026 L'escapade Resort. All rights reserved.
+            © 2026 L&apos;escapade Resort. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link

@@ -1,25 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary */
-  --color-primary: #3C2817;
-  --color-secondary: #614633;
-  
-  /* Backgrounds */
-  --color-background: #F5F1E8;
-  --color-surface: #FFFFFF;
-  
-  /* Accents */
-  --color-accent-gold: #8F9F8F;
-  --color-forest-green: #614633;
-  --color-olive: #8F9F8F;
-  
-  /* Supporting */
-  --color-light-beige: #CEDAC9;
-  --color-border: #B3A389;
-  --color-text-secondary: #614633;
-  
-  /* Mapped for compatibility */
+  /* Core palette */
+  --color-espresso: #30251E;
+  --color-walnut: #654631;
+  --color-forest: #354B3B;
+  --color-linen: #F0E7DA;
+  --color-bronze: #B69B78;
+
+  /* Derived supporting tones */
+  --color-surface: #FBF8F2;
+  --color-light-beige: #E8DCCA;
+  --color-border: #D8C9B6;
+
+  /* Legacy aliases kept for component compatibility */
+  --color-primary: var(--color-espresso);
+  --color-secondary: var(--color-walnut);
+  --color-background: var(--color-linen);
+  --color-accent-gold: var(--color-bronze);
+  --color-forest-green: var(--color-forest);
+  --color-olive: var(--color-forest);
+  --color-text-secondary: var(--color-walnut);
+
+  /* App */
   --background: var(--color-background);
   --foreground: var(--color-primary);
 }
@@ -27,34 +30,73 @@
 @theme inline {
   --color-background: var(--color-background);
   --color-foreground: var(--color-primary);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-espresso: var(--color-espresso);
+  --color-walnut: var(--color-walnut);
+  --color-forest: var(--color-forest);
+  --color-linen: var(--color-linen);
+  --color-bronze: var(--color-bronze);
+  --color-surface: var(--color-surface);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-cormorant);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-primary);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), Arial, Helvetica, sans-serif;
+  font-optical-sizing: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary {
-  background-color: var(--color-accent-gold);
-  color: var(--color-surface);
+  background-color: var(--color-walnut);
+  color: var(--color-linen);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-olive);
+  background-color: var(--color-espresso);
 }
 
 .btn-secondary {
-  border-color: var(--color-border);
-  color: var(--color-primary);
+  border-color: var(--color-walnut);
+  color: var(--color-espresso);
   background-color: transparent;
 }
 
 .btn-secondary:hover {
   background-color: var(--color-light-beige);
-  border-color: transparent;
+  border-color: var(--color-walnut);
+}
+
+.btn-light {
+  background-color: var(--color-linen);
+  color: var(--color-espresso);
+}
+
+.btn-light:hover {
+  background-color: var(--color-bronze);
+  color: var(--color-espresso);
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--color-bronze);
+  color: var(--color-espresso);
 }
 
 /* Hero section animations */
@@ -70,5 +112,5 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 1.2s ease-out;
+  animation: fadeIn 0.9s ease-out;
 }

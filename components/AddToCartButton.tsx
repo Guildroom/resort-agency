@@ -40,7 +40,7 @@ export default function AddToCartButton({
       <button
         type="button"
         onClick={handleAdd}
-        className={`btn-primary inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-300 hover:scale-[1.02] ${
+        className={`btn-primary inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-300 ${
           compact
             ? "w-full md:w-auto px-4 py-2 text-sm"
             : "w-full px-6 py-3 text-base"
@@ -58,8 +58,8 @@ export default function AddToCartButton({
         compact ? "h-9" : "h-12"
       }`}
       style={{
-        borderColor: "var(--color-accent-gold)",
-        backgroundColor: "var(--color-accent-gold)",
+        borderColor: "var(--color-forest)",
+        backgroundColor: "var(--color-forest)",
       }}
     >
       <button
@@ -69,7 +69,7 @@ export default function AddToCartButton({
         className={`flex items-center justify-center hover:bg-black/10 transition-colors ${
           compact ? "w-9 h-9" : "w-12 h-12"
         }`}
-        style={{ color: "var(--color-surface)" }}
+        style={{ color: "var(--color-linen)" }}
       >
         <Minus size={compact ? 14 : 18} />
       </button>
@@ -77,7 +77,7 @@ export default function AddToCartButton({
         className={`flex items-center justify-center font-semibold min-w-0 px-2 ${
           compact ? "text-sm" : "text-base"
         }`}
-        style={{ color: "var(--color-surface)" }}
+        style={{ color: "var(--color-linen)" }}
       >
         <span className="flex items-center gap-1">
           <Check size={compact ? 12 : 14} />
@@ -91,7 +91,7 @@ export default function AddToCartButton({
         className={`flex items-center justify-center hover:bg-black/10 transition-colors ${
           compact ? "w-9 h-9" : "w-12 h-12"
         }`}
-        style={{ color: "var(--color-surface)" }}
+        style={{ color: "var(--color-linen)" }}
       >
         <Plus size={compact ? 14 : 18} />
       </button>

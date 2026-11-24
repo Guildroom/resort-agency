@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -16,7 +16,6 @@ export default function RoomCarousel({
   compact = false,
 }: RoomCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -25,12 +24,6 @@ export default function RoomCarousel({
   const goToPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
-
-  useEffect(() => {
-    if (isPaused || images.length <= 1) return;
-    const interval = setInterval(goToNext, 3000);
-    return () => clearInterval(interval);
-  }, [isPaused, goToNext, images.length]);
 
   if (images.length === 0) {
     return (
@@ -53,8 +46,6 @@ export default function RoomCarousel({
   return (
     <div
       className="relative w-full h-full group"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       aria-live="polite"
     >
       <Image
@@ -79,7 +70,7 @@ export default function RoomCarousel({
               compact ? "opacity-100 md:opacity-0 md:group-hover:opacity-100" : "opacity-100"
             }`}
             style={{
-              backgroundColor: "rgba(28, 27, 26, 0.6)",
+              backgroundColor: "rgba(48, 37, 30, 0.65)",
               color: "var(--color-surface)",
             }}
           >
@@ -97,7 +88,7 @@ export default function RoomCarousel({
               compact ? "opacity-100 md:opacity-0 md:group-hover:opacity-100" : "opacity-100"
             }`}
             style={{
-              backgroundColor: "rgba(28, 27, 26, 0.6)",
+              backgroundColor: "rgba(48, 37, 30, 0.65)",
               color: "var(--color-surface)",
             }}
           >
@@ -122,7 +113,7 @@ export default function RoomCarousel({
               style={{
                 backgroundColor:
                   index === currentIndex
-                    ? "var(--color-accent-gold)"
+                    ? "var(--color-bronze)"
                     : "rgba(255, 255, 255, 0.6)",
                 width: index === currentIndex ? "16px" : "8px",
               }}

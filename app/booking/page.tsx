@@ -5,25 +5,19 @@ import {
   Users,
   Bed,
   ArrowLeft,
+  ArrowRight,
   Ban,
   Headphones,
 } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { rooms, formatPrice, getAvailability, getRoomImages } from "@/lib/rooms";
-import AddToCartButton from "@/components/AddToCartButton";
-import Toast from "@/components/Toast";
 import RoomCarousel from "@/components/RoomCarousel";
 import CartSidebar from "@/components/CartSidebar";
 
 export default function BookingPage() {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
-
-  function handleAdded(roomName: string) {
-    setToastMessage(`${roomName} added to cart`);
-  }
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -79,7 +73,7 @@ export default function BookingPage() {
           }}
         >
           <div className="flex items-center gap-3 mb-4">
-            <Calendar size={24} style={{ color: "var(--color-accent-gold)" }} />
+            <Calendar size={24} style={{ color: "var(--color-walnut)" }} />
             <h3
               className="text-lg md:text-xl font-semibold"
               style={{ color: "var(--color-primary)" }}
@@ -142,7 +136,7 @@ export default function BookingPage() {
         {/* Room List */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <Bed size={28} style={{ color: "var(--color-accent-gold)" }} />
+            <Bed size={28} style={{ color: "var(--color-walnut)" }} />
             <h3
               className="text-xl md:text-2xl font-semibold"
               style={{ color: "var(--color-primary)" }}
@@ -174,7 +168,7 @@ export default function BookingPage() {
                     if (soldOut) e.preventDefault();
                   }}
                   className={`block w-full text-left rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 ${
-                    soldOut ? "cursor-not-allowed opacity-60" : "cursor-pointer hover:-translate-y-0.5"
+                    soldOut ? "cursor-not-allowed opacity-60" : "cursor-pointer"
                   }`}
                   style={{
                     backgroundColor: "var(--color-surface)",
@@ -189,7 +183,7 @@ export default function BookingPage() {
                         {soldOut ? (
                           <span
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md"
-                            style={{ backgroundColor: "rgba(220, 38, 38, 0.95)", color: "#FFFFFF" }}
+                            style={{ backgroundColor: "rgba(140, 45, 38, 0.95)", color: "var(--color-linen)" }}
                           >
                             <Ban size={14} />
                             Sold out
@@ -197,14 +191,14 @@ export default function BookingPage() {
                         ) : lowStock ? (
                           <span
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md"
-                            style={{ backgroundColor: "rgba(217, 119, 6, 0.95)", color: "#FFFFFF" }}
+                            style={{ backgroundColor: "var(--color-bronze)", color: "var(--color-espresso)" }}
                           >
                             Only {available} left!
                           </span>
                         ) : (
                           <span
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md"
-                            style={{ backgroundColor: "var(--color-accent-gold)", color: "var(--color-surface)" }}
+                            style={{ backgroundColor: "var(--color-forest)", color: "var(--color-linen)" }}
                           >
                             {available} available
                           </span>
@@ -227,49 +221,30 @@ export default function BookingPage() {
                           {room.content.summary}
                         </p>
                         <div className="flex items-center gap-2 text-sm md:text-base" style={{ color: "var(--color-text-secondary)" }}>
-                          <Users size={18} style={{ color: "var(--color-accent-gold)" }} />
+                          <Users size={18} style={{ color: "var(--color-walnut)" }} />
                           <span>Up to {room.occupancy} guests</span>
                         </div>
                       </div>
 
-                      {/* Bottom Row: Price & Add to Cart */}
+                      {/* Bottom Row: Price & Read More */}
                       <div 
                         className="mt-6 pt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
                         style={{ borderColor: "var(--color-border)" }}
                       >
                         <div>
-                          <span className="text-xl md:text-2xl lg:text-3xl font-bold" style={{ color: "var(--color-accent-gold)" }}>
+                          <span className="text-xl md:text-2xl lg:text-3xl font-bold" style={{ color: "var(--color-espresso)" }}>
                             {formatPrice(room.price)}
                           </span>
                           <span className="text-xs md:text-sm ml-1" style={{ color: "var(--color-text-secondary)" }}>
                             / night
                           </span>
                         </div>
-                        <div
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                          }}
-                          onKeyDown={(e) => {
-                            e.stopPropagation();
-                          }}
-                        >
-                          {!soldOut && (
-                            <AddToCartButton
-                              roomId={room.id}
-                              onAdd={(roomId, qty) => {
-                                const room = rooms.find((r) => r.id === roomId);
-                                if (room) {
-                                  handleAdded(
-                                    qty > 1
-                                      ? `${qty} × ${room.name} added to cart`
-                                      : `${room.name} added to cart`
-                                  );
-                                }
-                              }}
-                            />
-                          )}
-                        </div>
+                        {!soldOut && (
+                          <span className="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300">
+                            Read more
+                            <ArrowRight size={18} />
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -283,7 +258,7 @@ export default function BookingPage() {
         <div className="pt-8">
           <a
             href="mailto:reservations@lanscade.com"
-            className="btn-secondary w-full md:w-auto inline-flex items-center justify-center gap-2 px-12 py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300 hover:scale-[1.02]"
+            className="btn-secondary w-full md:w-auto inline-flex items-center justify-center gap-2 px-12 py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300"
           >
             <Headphones size={20} />
             Contact Our Personnel
@@ -292,9 +267,6 @@ export default function BookingPage() {
       </div>
 
       <CartSidebar />
-      {toastMessage && (
-        <Toast show={!!toastMessage} message={toastMessage} onClose={() => setToastMessage(null)} />
-      )}
     </main>
   );
 }

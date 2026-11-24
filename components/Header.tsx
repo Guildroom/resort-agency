@@ -20,10 +20,10 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b opacity-90"
+      className="sticky top-0 z-50 w-full border-b backdrop-blur-md"
       style={{
-        backgroundColor: "var(--color-surface)",
-        borderColor: "var(--color-border)",
+        backgroundColor: "rgba(251, 248, 242, 0.5)",
+        borderColor: "rgba(216, 201, 182, 0.4)",
       }}
     >
       <nav className="mx-auto px-2 md:px-4">
@@ -31,11 +31,12 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             <div className="relative w-32 h-16 md:w-36 md:h-20">
               <Image
-                src="/Logo.png"
-                alt="Lanscade Resort"
+                src="/logo.svg"
+                alt="L'escapade Resort"
                 fill
                 className="object-contain"
                 priority
+                unoptimized
               />
             </div>
           </Link>
@@ -90,7 +91,7 @@ export default function Header() {
                           </span>
                           <span
                             className="text-xs font-semibold"
-                            style={{ color: "var(--color-accent-gold)" }}
+                            style={{ color: "var(--color-walnut)" }}
                           >
                             {formatPrice(room.price)}
                           </span>
@@ -176,7 +177,7 @@ export default function Header() {
                         <span>{room.name}</span>
                         <span
                           className="font-semibold"
-                          style={{ color: "var(--color-accent-gold)" }}
+                          style={{ color: "var(--color-walnut)" }}
                         >
                           {formatPrice(room.price)}
                         </span>

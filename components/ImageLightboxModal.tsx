@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -19,13 +19,13 @@ export default function ImageLightboxModal({
 }: ImageLightboxModalProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+  }, [images.length]);
 
-  const goToPrev = () => {
+  const goToPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  }, [images.length]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -41,12 +41,12 @@ export default function ImageLightboxModal({
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "unset";
     };
-  }, [onClose]);
+  }, [onClose, goToNext, goToPrev]);
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center"
-      style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
+      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm"
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.9)" }}
       onClick={onClose}
     >
       <button
@@ -55,7 +55,7 @@ export default function ImageLightboxModal({
         className="absolute top-4 right-4 z-10 p-2 rounded-full transition-colors duration-200"
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.1)",
-          color: "var(--color-surface)",
+          color: "var(--color-linen)",
         }}
         aria-label="Close gallery"
       >
@@ -71,7 +71,7 @@ export default function ImageLightboxModal({
         className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full transition-colors duration-200 z-10"
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.1)",
-          color: "var(--color-surface)",
+          color: "var(--color-linen)",
         }}
         aria-label="Previous image"
       >
@@ -87,7 +87,7 @@ export default function ImageLightboxModal({
         className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full transition-colors duration-200 z-10"
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.1)",
-          color: "var(--color-surface)",
+          color: "var(--color-linen)",
         }}
         aria-label="Next image"
       >
@@ -125,7 +125,7 @@ export default function ImageLightboxModal({
               height: "8px",
               backgroundColor:
                 index === currentIndex
-                  ? "var(--color-accent-gold)"
+                  ? "var(--color-bronze)"
                   : "rgba(255, 255, 255, 0.5)",
             }}
             aria-label={`Go to image ${index + 1}`}
@@ -136,8 +136,8 @@ export default function ImageLightboxModal({
       <div
         className="absolute bottom-20 left-1/2 -translate-x-1/2 text-sm font-medium px-3 py-1.5 rounded-full"
         style={{
-          backgroundColor: "rgba(0, 0, 0, 0.6)",
-          color: "var(--color-surface)",
+          backgroundColor: "rgba(48, 37, 30, 0.75)",
+          color: "var(--color-linen)",
         }}
       >
         {currentIndex + 1} / {images.length}
