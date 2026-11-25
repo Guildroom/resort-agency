@@ -4,9 +4,8 @@ import { useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Users, Bed } from "lucide-react";
-import { getRoomById, getRoomImages, formatPrice } from "@/lib/rooms";
-import CartSidebar from "@/components/CartSidebar";
-import AddToCartButton from "@/components/AddToCartButton";
+import { getRoomById, getRoomImages } from "@/lib/rooms";
+import RoomBookingButtons from "@/components/RoomBookingButtons";
 import ImageGalleryGrid from "@/components/ImageGalleryGrid";
 
 interface RoomDetailClientProps {
@@ -172,57 +171,36 @@ export default function RoomDetailClient({ roomId }: RoomDetailClientProps) {
             borderColor: "var(--color-border)",
           }}
         >
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <p
-                className="text-sm md:text-base mb-1"
+              <label
+                className="block text-sm font-medium mb-2"
                 style={{ color: "var(--color-text-secondary)" }}
               >
-                Starting from
-              </p>
-              <span
-                className="text-2xl md:text-3xl font-bold"
-                style={{ color: "var(--color-espresso)" }}
-              >
-                {formatPrice(room.price)}
-              </span>
-              <span
-                className="text-base md:text-lg ml-2"
-                style={{ color: "var(--color-text-secondary)" }}
-              >
-                / night
-              </span>
+                Rooms
+              </label>
+              <input
+                type="number"
+                min={1}
+                max={room.total}
+                value={quantity}
+                onChange={(e) => setQuantity(Math.max(1, Math.min(room.total, Number(e.target.value))))}
+                className="w-full sm:w-20 px-4 py-3 rounded border text-center font-semibold"
+                style={{
+                  borderColor: "var(--color-border)",
+                  color: "var(--color-primary)",
+                }}
+              />
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-end gap-4">
-              <div>
-                <label
-                  className="block text-sm font-medium mb-2"
-                  style={{ color: "var(--color-text-secondary)" }}
-                >
-                  Quantity
-                </label>
-                <input
-                  type="number"
-                  min={1}
-                  max={room.total}
-                  value={quantity}
-                  onChange={(e) => setQuantity(Math.max(1, Math.min(room.total, Number(e.target.value))))}
-                  className="w-full sm:w-20 px-4 py-3 rounded border text-center font-semibold"
-                  style={{
-                    borderColor: "var(--color-border)",
-                    color: "var(--color-primary)",
-                  }}
-                />
-              </div>
-
-              <AddToCartButton roomId={room.id} initialQuantity={quantity} />
-            </div>
+            <RoomBookingButtons
+              roomName={room.name}
+              occupancy={room.occupancy}
+              quantity={quantity}
+            />
           </div>
         </div>
       </div>
-
-      <CartSidebar />
     </main>
   );
 }

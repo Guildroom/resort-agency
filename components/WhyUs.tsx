@@ -7,51 +7,40 @@ import FeatureCard from "./FeatureCard";
 const features = [
   {
     icon: Mountain,
-    title: "Unmatched Natural Beauty",
+    title: "Sanctuary in the Wild",
     description:
-      "Surrounded by pristine wilderness and breathtaking mountain vistas that create an unforgettable backdrop for your stay.",
+      "Immerse yourself in the gentle embrace of pristine nature and quiet grandeur, where every vista is a part of your journey.",
     highlight: {
-      value: "Room to breathe",
-      label: "Untouched natural surroundings",
+      label: "EMBRACE OF THE WILDERNESS",
     },
   },
   {
     icon: Sparkles,
-    title: "Luxury Redefined",
+    title: "Harmonious Luxury",
     description:
-      "Premium amenities and accommodations designed for discerning guests who appreciate the finer things in life.",
+      "Discreet elegance and mindful comforts designed for those who find richness in quiet, thoughtful details.",
     highlight: {
-      value: "Quietly indulgent",
-      label: "Comfort without compromise",
+      label: "GENUINE HOSPITALITY",
     },
   },
   {
     icon: Leaf,
-    title: "Sustainable Excellence",
+    title: "Living with the Earth",
     description:
-      "Award-winning eco-friendly practices preserving nature for future generations while providing uncompromising comfort.",
+      "A thoughtful dedication to preserving our natural heritage, offering gentle comfort in harmony with the forest.",
     highlight: {
-      value: "Rooted in care",
-      label: "Kind to the land",
+      label: "ECO-CONSCIOUS LIVING",
     },
   },
   {
     icon: Heart,
-    title: "Exceptional Service",
+    title: "Gentle Attentiveness",
     description:
-      "Dedicated concierge team available around the clock ensuring every moment of your stay exceeds expectations.",
+      "A devoted team anticipating your needs with warmth and grace, ensuring a seamless, deeply personal stay.",
     highlight: {
-      value: "Warmly welcomed",
-      label: "Looked after, always",
+      label: "PERSONALIZED CARE",
     },
   },
-];
-
-const promises = [
-  { value: "Slow mornings", label: "No rush, no schedule" },
-  { value: "Deep rest", label: "Sleep like you mean it" },
-  { value: "Quiet luxury", label: "Comfort without noise" },
-  { value: "Timeless memories", label: "Take the feeling home" },
 ];
 
 export default function WhyUs() {
@@ -85,7 +74,7 @@ export default function WhyUs() {
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
             <FeatureCard
               key={feature.title}
@@ -97,40 +86,6 @@ export default function WhyUs() {
             />
           ))}
         </div>
-
-        {/* Promise Row */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-16 border-t"
-          style={{ borderColor: "var(--color-border)" }}
-        >
-          {promises.map((promise, index) => (
-            <motion.div
-              key={promise.value}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-              className="text-center"
-            >
-              <div
-                className="text-2xl md:text-3xl font-semibold mb-2 font-serif"
-                style={{ color: "var(--color-walnut)" }}
-              >
-                {promise.value}
-              </div>
-              <div
-                className="text-xs md:text-sm uppercase tracking-wider"
-                style={{ color: "var(--color-text-secondary)" }}
-              >
-                {promise.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

@@ -41,6 +41,17 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 98px;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 120px;
+  }
+}
+
 body {
   background: var(--color-background);
   color: var(--color-primary);

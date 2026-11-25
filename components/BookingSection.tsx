@@ -2,13 +2,37 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, MapPin, Star, Sparkles } from "lucide-react";
+import { Calendar, MapPin, HeartHandshake, Trees } from "lucide-react";
 
 const highlights = [
-  { icon: Calendar, label: "Easy Booking", color: "var(--color-walnut)" },
-  { icon: MapPin, label: "Prime Location", color: "var(--color-forest)" },
-  { icon: Star, label: "5-Star Service", color: "var(--color-bronze)" },
-  { icon: Sparkles, label: "Luxury Amenities", color: "var(--color-espresso)" },
+  {
+    icon: Calendar,
+    title: "Easy Booking",
+    label: "SIMPLE BOOKING",
+    description: "Quick and easy reservation.",
+    color: "var(--color-walnut)",
+  },
+  {
+    icon: MapPin,
+    title: "Prime Location",
+    label: "PEACEFUL LOCATION",
+    description: "Nestled in natural surroundings.",
+    color: "var(--color-forest)",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Our Service",
+    label: "HERE FOR YOU",
+    description: "Attentive hospitality to make you feel at home.",
+    color: "var(--color-bronze)",
+  },
+  {
+    icon: Trees,
+    title: "Outdoor Spaces",
+    label: "OPEN TO EXPLORE",
+    description: "Shaded gardens, pathways, and quiet corners.",
+    color: "var(--color-espresso)",
+  },
 ];
 
 export default function BookingSection() {
@@ -16,18 +40,18 @@ export default function BookingSection() {
     <section
       className="relative w-full px-6 md:px-12 lg:px-24 py-20 md:py-32 overflow-hidden"
       style={{ 
-        backgroundColor: "var(--color-walnut)",
+        backgroundColor: "var(--color-primary)",
         backgroundImage: "url('/hero/BR0A9717.jpg')",
         backgroundPosition: "right center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat"
       }}
     >
-      {/* Walnut gradient - top left to bottom right */}
+      {/* Header-colored gradient - top left to bottom right */}
       <div 
         className="absolute inset-0" 
         style={{
-          background: "linear-gradient(to bottom right, var(--color-walnut) 0%, rgba(101, 70, 49, 0.95) 16%, rgba(101, 70, 49, 0.65) 34%, rgba(101, 70, 49, 0.25) 48%, transparent 60%)"
+          background: "linear-gradient(to bottom right, var(--color-primary) 0%, rgba(48, 37, 30, 0.95) 16%, rgba(48, 37, 30, 0.65) 34%, rgba(48, 37, 30, 0.25) 48%, transparent 60%)"
         }}
       />
       
@@ -44,20 +68,19 @@ export default function BookingSection() {
               className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
               style={{ color: "var(--color-linen)" }}
             >
-              Ready to Experience L&apos;escapade?
+              Welcome to L&apos;escapade
             </h2>
             <p
               className="text-base md:text-lg leading-relaxed mb-8"
               style={{ color: "var(--color-light-beige)" }}
             >
-              Reserve your luxury escape today and discover where nature meets
-              unparalleled comfort. Your perfect getaway awaits.
+              A quiet retreat where nature meets comfort. Explore our sanctuary.
             </p>
             <Link
-              href="/booking"
+              href="#rooms"
               className="btn-light inline-block px-8 py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300"
             >
-              Book Your Stay
+              EXPLORE ↗
             </Link>
           </motion.div>
 
@@ -84,17 +107,29 @@ export default function BookingSection() {
                 }}
               >
                 <item.icon
-                  size={34}
+                  size={32}
                   style={{ color: item.color }}
                   strokeWidth={1.5}
                   className="mb-3"
                 />
                 <span
-                  className="text-sm font-medium text-center"
-                  style={{ color: "var(--color-espresso)" }}
+                  className="text-[10px] font-semibold uppercase tracking-[0.2em] text-center"
+                  style={{ color: item.color }}
                 >
                   {item.label}
                 </span>
+                <h3
+                  className="mt-2 mb-1 text-base font-semibold text-center"
+                  style={{ color: "var(--color-espresso)" }}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  className="text-xs leading-relaxed text-center"
+                  style={{ color: "var(--color-walnut)" }}
+                >
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>

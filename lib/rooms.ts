@@ -1,7 +1,6 @@
 export interface Room {
   id: string;
   name: string;
-  price: number;
   total: number;
   occupancy: number;
   img: string;
@@ -24,7 +23,6 @@ export const rooms: Room[] = [
   {
     id: "1",
     name: "Two-Bedroom Private Pool Villa",
-    price: 2500000,
     total: 2,
     occupancy: 4,
     img: "public/villa/BR0A9700.jpg,public/villa/BR0A9703.jpg,public/villa/BR0A9706.jpg,public/villa/BR0A9709.jpg,public/villa/BR0A9712.jpg,public/villa/BR0A9717.jpg,public/villa/BR0A9720.jpg,public/villa/BR0A9726.jpg,public/villa/BR0A9729.jpg,public/villa/BR0A9732.jpg,public/villa/BR0A9744.jpg,public/villa/BR0A9747.jpg,public/villa/BR0A9750.jpg,public/villa/BR0A9753.jpg,public/villa/BR0A9756.jpg",
@@ -64,7 +62,6 @@ export const rooms: Room[] = [
   {
     id: "2",
     name: "Garden Bungalow",
-    price: 3800000,
     total: 7,
     occupancy: 2,
     img: "public/bungalow/BR0A9555.jpg,public/bungalow/BR0A9558.jpg,public/bungalow/BR0A9561.jpg,public/bungalow/BR0A9564.jpg,public/bungalow/BR0A9568.jpg,public/bungalow/BR0A9570.jpg,public/bungalow/BR0A9573.jpg,public/bungalow/BR0A9576.jpg",
@@ -107,14 +104,6 @@ export function getRoomImages(room: Room): string[] {
     .split(",")
     .map((path) => path.trim().replace(/^public\//, "/"))
     .filter(Boolean);
-}
-
-export function formatPrice(price: number): string {
-  return price.toLocaleString("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
-  });
 }
 
 function hashString(str: string): number {

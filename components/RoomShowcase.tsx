@@ -1,101 +1,110 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { rooms, formatPrice, getRoomImages } from "@/lib/rooms";
+import { rooms, getRoomImages } from "@/lib/rooms";
+
+const roomCopy = {
+  bungalow: {
+    title: "Garden Bungalow",
+    description:
+      "A peaceful hideaway among tropical greenery, with warm natural textures and room to unwind.",
+    cta: "Explore the bungalow",
+  },
+  villa: {
+    title: "Two-Bedroom Pool Villa",
+    description:
+      "A private swimming pool, generous living areas and two bedrooms for unhurried time together.",
+    cta: "Explore the villa",
+  },
+};
+
+function getRoomCopy(name: string) {
+  return name.toLowerCase().includes("bungalow") ? roomCopy.bungalow : roomCopy.villa;
+}
 
 export default function RoomShowcase() {
-  const gridLayout =
-    rooms.length <= 2
-      ? "grid-cols-1 sm:grid-cols-2 max-w-4xl"
-      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl";
+  const orderedRooms = [...rooms].sort((a, b) => {
+    const rank = (name: string) => (name.toLowerCase().includes("bungalow") ? 0 : 1);
+    return rank(a.name) - rank(b.name);
+  });
 
   return (
     <section
-      className="relative w-full pt-20 md:pt-28 pb-10 md:pb-14"
+      id="rooms"
+      className="relative w-full px-6 py-16 md:px-12 md:py-20 md:pb-[105px] lg:px-[6%]"
       style={{ backgroundColor: "var(--color-background)" }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-[38px] flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-[25px]">
           <div>
             <p
-              className="text-xs uppercase tracking-[0.25em] mb-3"
+              className="text-[10px] font-semibold uppercase tracking-[0.25em]"
               style={{ color: "var(--color-walnut)" }}
             >
-              Stay With Us
+              01 / Stay
             </p>
             <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-bold"
+              className="mt-3 text-3xl font-bold md:text-4xl lg:text-5xl"
               style={{ color: "var(--color-primary)" }}
             >
-              Rooms & Villas
+              Somewhere to belong.
             </h2>
           </div>
           <p
-            className="max-w-md text-base md:text-lg"
+            className="max-w-[350px] text-base leading-relaxed"
             style={{ color: "var(--color-text-secondary)" }}
           >
-            Choose the space that fits your kind of escape.
+            Two ways to retreat into the natural rhythms of the island, each
+            with its own sense of privacy.
           </p>
         </div>
 
-        <div className={`mx-auto grid gap-6 ${gridLayout}`}>
-          {rooms.map((room) => {
+        <div className="grid grid-cols-1 gap-11 md:grid-cols-2 md:gap-[35px]">
+          {orderedRooms.map((room, index) => {
             const image = getRoomImages(room)[0];
+            const copy = getRoomCopy(room.name);
 
             return (
               <Link
                 key={room.id}
                 href={`/booking/${room.id}`}
-                className="group flex h-full flex-col overflow-hidden rounded-lg border transition-shadow duration-300 hover:shadow-lg"
-                style={{
-                  backgroundColor: "var(--color-surface)",
-                  borderColor: "var(--color-border)",
-                }}
+                className="group block"
               >
                 <div
-                  className="relative aspect-[4/3] overflow-hidden"
+                  className="relative h-[65vw] max-h-[430px] overflow-hidden md:h-[34vw] md:max-h-[480px] md:min-h-[240px]"
                   style={{ backgroundColor: "var(--color-border)" }}
                 >
                   <Image
                     src={image}
-                    alt={room.name}
+                    alt={copy.title}
                     fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
 
-                <div className="p-6">
+                <div className="pt-6">
+                  <p
+                    className="text-[10px] font-semibold uppercase tracking-[0.25em]"
+                    style={{ color: "var(--color-walnut)" }}
+                  >
+                    {String(index + 1).padStart(2, "0")} — Up to{" "}
+                    {room.occupancy} guests
+                  </p>
                   <h3
-                    className="text-xl md:text-2xl font-semibold mb-4"
+                    className="mt-2.5 mb-3.5 text-xl font-semibold md:text-2xl"
                     style={{ color: "var(--color-primary)" }}
                   >
-                    {room.name}
+                    {copy.title}
                   </h3>
-
-                  <div
-                    className="pt-4 border-t flex items-center justify-between gap-4"
-                    style={{ borderColor: "var(--color-border)" }}
+                  <p
+                    className="mb-5 max-w-[510px] text-base leading-relaxed"
+                    style={{ color: "var(--color-text-secondary)" }}
                   >
-                    <div>
-                      <span
-                        className="text-lg md:text-xl font-bold"
-                        style={{ color: "var(--color-espresso)" }}
-                      >
-                        {formatPrice(room.price)}
-                      </span>
-                      <span
-                        className="text-xs md:text-sm ml-1"
-                        style={{ color: "var(--color-text-secondary)" }}
-                      >
-                        / night
-                      </span>
-                    </div>
-                    <span className="btn-primary inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm transition-colors duration-300">
-                      Read more
-                      <ArrowRight size={16} />
-                    </span>
-                  </div>
+                    {copy.description}
+                  </p>
+                  <span className="inline-block border-b border-current pb-[7px] text-[10px] font-semibold uppercase tracking-[0.17em] transition-colors duration-200 group-hover:text-[var(--color-forest)]">
+                    {copy.cta} →
+                  </span>
                 </div>
               </Link>
             );

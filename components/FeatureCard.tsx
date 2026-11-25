@@ -8,7 +8,6 @@ interface FeatureCardProps {
   title: string;
   description: string;
   highlight?: {
-    value: string;
     label: string;
   };
   delay?: number;
@@ -64,12 +63,6 @@ export default function FeatureCard({
       {/* Optional Highlight */}
       {highlight && (
         <div className="mt-4 pt-4 border-t" style={{ borderColor: "var(--color-border)" }}>
-          <div
-            className="text-lg md:text-xl font-semibold mb-1 font-serif"
-            style={{ color: "var(--color-walnut)" }}
-          >
-            {highlight.value}
-          </div>
           <div
             className="text-xs uppercase tracking-wider"
             style={{ color: "var(--color-text-secondary)" }}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CartProvider } from "@/lib/cart-context";
+import PageOffset from "@/components/PageOffset";
 import "./globals.css";
 
 const cormorant = localFont({
@@ -57,11 +57,9 @@ export default function RootLayout({
       className={`${cormorant.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <CartProvider>
-          <Header />
-          {children}
-          <Footer />
-        </CartProvider>
+        <Header />
+        <PageOffset>{children}</PageOffset>
+        <Footer />
       </body>
     </html>
   );

@@ -57,10 +57,10 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8"
+          className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
         >
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link href="/">
               <div className="relative w-48 h-20 mb-3">
                 <Image
@@ -130,7 +130,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="min-w-0">
             <h4
               className="text-lg font-semibold mb-4"
               style={{ color: "var(--color-surface)" }}
@@ -145,7 +145,7 @@ export default function Footer() {
                   style={{ color: "var(--color-bronze)" }}
                 />
                 <span
-                  className="text-sm"
+                  className="text-sm break-words"
                   style={{ color: "var(--color-light-beige)" }}
                 >
                   Alassari, Desa Pacung, Kec. Tejakula<br />
@@ -160,11 +160,11 @@ export default function Footer() {
                   style={{ color: "var(--color-bronze)" }}
                 />
                 <a
-                  href="tel:+15550123456"
+                  href="tel:+6281125062345"
                   className="text-sm transition-colors duration-300 hover:text-white"
                   style={{ color: "var(--color-light-beige)" }}
                 >
-                  +1 (555) 012-3456
+                  +62 81125062345
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -174,11 +174,11 @@ export default function Footer() {
                   style={{ color: "var(--color-bronze)" }}
                 />
                 <a
-                  href="mailto:reservations@lanscade.com"
-                  className="text-sm transition-colors duration-300 hover:text-white"
+                  href="mailto:intouch@lescapaderesort.com"
+                  className="text-sm break-all transition-colors duration-300 hover:text-white"
                   style={{ color: "var(--color-light-beige)" }}
                 >
-                  reservations@lanscade.com
+                  intouch@lescapaderesort.com
                 </a>
               </li>
               <li className="flex items-start gap-3">

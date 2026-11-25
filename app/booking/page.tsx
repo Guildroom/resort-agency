@@ -11,9 +11,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { rooms, formatPrice, getAvailability, getRoomImages } from "@/lib/rooms";
+import { rooms, getAvailability, getRoomImages } from "@/lib/rooms";
 import RoomCarousel from "@/components/RoomCarousel";
-import CartSidebar from "@/components/CartSidebar";
 
 export default function BookingPage() {
   const [checkIn, setCheckIn] = useState("");
@@ -226,26 +225,17 @@ export default function BookingPage() {
                         </div>
                       </div>
 
-                      {/* Bottom Row: Price & Read More */}
-                      <div 
-                        className="mt-6 pt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-                        style={{ borderColor: "var(--color-border)" }}
-                      >
-                        <div>
-                          <span className="text-xl md:text-2xl lg:text-3xl font-bold" style={{ color: "var(--color-espresso)" }}>
-                            {formatPrice(room.price)}
-                          </span>
-                          <span className="text-xs md:text-sm ml-1" style={{ color: "var(--color-text-secondary)" }}>
-                            / night
-                          </span>
-                        </div>
-                        {!soldOut && (
+                      {!soldOut && (
+                        <div
+                          className="mt-6 pt-4 border-t flex items-center justify-end"
+                          style={{ borderColor: "var(--color-border)" }}
+                        >
                           <span className="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300">
                             Read more
                             <ArrowRight size={18} />
                           </span>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Link>
@@ -257,7 +247,7 @@ export default function BookingPage() {
         {/* Contact Button */}
         <div className="pt-8">
           <a
-            href="mailto:reservations@lanscade.com"
+            href="mailto:intouch@lescapaderesort.com"
             className="btn-secondary w-full md:w-auto inline-flex items-center justify-center gap-2 px-12 py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300"
           >
             <Headphones size={20} />
@@ -265,8 +255,6 @@ export default function BookingPage() {
           </a>
         </div>
       </div>
-
-      <CartSidebar />
     </main>
   );
 }

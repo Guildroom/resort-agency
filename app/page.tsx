@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Intro from "@/components/Intro";
 import WhyUs from "@/components/WhyUs";
 import BookingSection from "@/components/BookingSection";
 import RoomShowcase from "@/components/RoomShowcase";
@@ -8,7 +9,7 @@ export default function Home() {
   return (
     <main className="relative w-full">
       {/* Hero Section */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden -mt-16 md:-mt-20">
+      <section id="hero" className="relative w-full h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -46,6 +47,9 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* Welcome Intro Section */}
+      <Intro />
 
       {/* Why Us Section */}
       <WhyUs />
