@@ -21,7 +21,7 @@ export default function ImageGalleryGrid({
   }
 
   const displayImages = images.slice(0, 4);
-  const remainingCount = images.length - 4;
+  const remainingCount = images.length - 3;
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);

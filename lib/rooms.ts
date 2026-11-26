@@ -25,7 +25,7 @@ export const rooms: Room[] = [
     name: "Two-Bedroom Private Pool Villa",
     total: 2,
     occupancy: 4,
-    img: "public/villa/BR0A9700.jpg,public/villa/BR0A9703.jpg,public/villa/BR0A9706.jpg,public/villa/BR0A9709.jpg,public/villa/BR0A9712.jpg,public/villa/BR0A9717.jpg,public/villa/BR0A9720.jpg,public/villa/BR0A9726.jpg,public/villa/BR0A9729.jpg,public/villa/BR0A9732.jpg,public/villa/BR0A9744.jpg,public/villa/BR0A9747.jpg,public/villa/BR0A9750.jpg,public/villa/BR0A9753.jpg,public/villa/BR0A9756.jpg",
+    img: "public/villa/01-lescapade-villa-villa-pool-hero-9729.webp,public/villa/02-lescapade-villa-private-pool-9720.webp,public/villa/03-lescapade-villa-poolside-loungers-9732.webp,public/villa/04-lescapade-villa-living-room-hero-9645.webp,public/villa/05-lescapade-villa-living-room-wide-9639.webp,public/villa/06-lescapade-villa-living-room-angle-9648.webp,public/villa/07-lescapade-villa-dining-and-kitchen-9628.webp,public/villa/08-lescapade-villa-master-bedroom-hero-9685.webp,public/villa/09-lescapade-villa-master-bedroom-wide-9678.webp,public/villa/10-lescapade-villa-master-bedroom-dressing-9697.webp,public/villa/11-lescapade-villa-master-bathroom-9700.webp,public/villa/12-lescapade-villa-second-bedroom-hero-9747.webp,public/villa/13-lescapade-villa-second-bedroom-pool-view-9753.webp,public/villa/14-lescapade-villa-window-seat-9759.webp,public/villa/15-lescapade-villa-second-bathroom-9769.webp",
     content: {
       tagline: "Your Secluded Island Home with a Private Pool, Lush Gardens, and a Distant Ocean Horizon.",
       summary: "A spacious two-bedroom villa featuring a private swimming pool, a full kitchen, a soaking bathtub in the master suite, and tranquil garden views with a gentle glimpse of the distant sea.",
@@ -64,7 +64,7 @@ export const rooms: Room[] = [
     name: "Garden Bungalow",
     total: 7,
     occupancy: 2,
-    img: "public/bungalow/BR0A9555.jpg,public/bungalow/BR0A9558.jpg,public/bungalow/BR0A9561.jpg,public/bungalow/BR0A9564.jpg,public/bungalow/BR0A9568.jpg,public/bungalow/BR0A9570.jpg,public/bungalow/BR0A9573.jpg,public/bungalow/BR0A9576.jpg",
+    img: "public/bungalow/01-lescapade-bungalow-bedroom-hero-9555.webp,public/bungalow/02-lescapade-bungalow-bedroom-front-9558.webp,public/bungalow/03-lescapade-bungalow-bedroom-angle-9561.webp,public/bungalow/04-lescapade-bungalow-bedroom-garden-view-9564.webp,public/bungalow/05-lescapade-bungalow-minibar-and-wardrobe-9568.webp,public/bungalow/06-lescapade-bungalow-private-veranda-9576.webp,public/bungalow/07-lescapade-bungalow-veranda-seating-9586.webp,public/bungalow/08-lescapade-bungalow-veranda-view-9592.webp,public/bungalow/09-lescapade-bungalow-garden-exterior-9579.webp,public/bungalow/10-lescapade-bungalow-bungalow-entrance-9595.webp,public/bungalow/11-lescapade-bungalow-open-air-vanity-9573.webp,public/bungalow/12-lescapade-bungalow-bathroom-vanity-9603.webp,public/bungalow/13-lescapade-bungalow-open-air-bathroom-9606.webp,public/bungalow/14-lescapade-bungalow-shower-detail-9570.webp,public/bungalow/15-lescapade-bungalow-bathroom-shower-9609.webp",
     content: {
       tagline: "An Intimate Island Hideaway Surrounded by Lush Nature.",
       summary: "Tucked away within vibrant tropical gardens, our Garden Bungalow offers a peaceful, private retreat designed for unhurried island living and restful comfort.",

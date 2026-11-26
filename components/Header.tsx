@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
-const leftNavLinks = [{ label: "Rooms", href: "/#rooms" }];
-const rightNavLinks = [
+const navLinks = [
+  { label: "Rooms", href: "/#rooms" },
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/#gallery" },
 ];
-const mobileNavLinks = [...leftNavLinks, ...rightNavLinks];
+const mobileNavLinks = navLinks;
 
 export default function Header() {
   const pathname = usePathname();
@@ -60,34 +60,10 @@ export default function Header() {
         boxShadow: solidHeader ? "0 1px 0 rgba(255, 255, 255, 0.125)" : "none",
       }}
     >
-      <div className="grid h-[88px] grid-cols-[1fr_auto_1fr] items-center px-4 md:h-[112px] md:px-[4.5%]">
-        <button
-          className="justify-self-start p-2 -ml-2 md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        <nav
-          className="hidden items-center gap-[25px] text-[10px] uppercase tracking-[0.15em] md:flex"
-          aria-label="Main navigation"
-        >
-          {leftNavLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="transition-opacity duration-200 hover:opacity-70"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
+      <div className="flex h-[88px] items-center justify-between gap-4 px-4 md:h-[112px] md:px-[4.5%]">
         <Link
           href="/"
-          className="flex flex-col items-center justify-center gap-[3px] py-1.5"
+          className="flex shrink-0 flex-col items-start justify-center gap-[3px] py-1.5"
           aria-label="L'escapade home"
         >
           <span className="relative block h-[57px] w-[90px] md:h-[78px] md:w-[120px]">
@@ -106,10 +82,10 @@ export default function Header() {
         </Link>
 
         <nav
-          className="flex items-center justify-end gap-[25px] text-[10px] uppercase tracking-[0.15em]"
-          aria-label="Secondary navigation"
+          className="flex items-center justify-end gap-3 text-[10px] uppercase tracking-[0.15em] md:gap-[25px]"
+          aria-label="Main navigation"
         >
-          {rightNavLinks.map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
@@ -130,6 +106,14 @@ export default function Header() {
           >
             Book Your Stay
           </Link>
+          <button
+            className="-mr-2 p-2 md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </nav>
       </div>
 

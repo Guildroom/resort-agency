@@ -24,26 +24,21 @@ export default function Home() {
         </div>
 
         {/* Content Layer */}
-        <div className="relative z-10 text-center px-6 md:px-12 max-w-4xl animate-fade-in">
-          <h1 
-            className="text-6xl md:text-8xl font-bold mb-6 tracking-wide"
+        <div className="relative z-10 text-center px-6 md:px-12 max-w-5xl animate-fade-in">
+          <h1
+            className="text-6xl md:text-[7rem] font-bold mb-6 tracking-tight"
             style={{ color: 'var(--color-linen)' }}
           >
-            L&apos;escapade
+            A quieter
+            <br />
+            side of Bali.
           </h1>
-          
-          <p 
-            className="text-2xl md:text-3xl font-light mb-8 tracking-wide"
-            style={{ color: 'var(--color-light-beige)' }}
-          >
-            Luxury, Naturally.
-          </p>
-          
-          <p 
+
+          <p
             className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
             style={{ color: 'var(--color-linen)' }}
           >
-            A quiet retreat in the heart of nature, designed for pure comfort, deep rest, and timeless memories. Come as a guest, leave renewed.
+            A secluded retreat, where days unfold naturally.
           </p>
         </div>
       </section>
