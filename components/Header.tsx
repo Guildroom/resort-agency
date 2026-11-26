@@ -76,9 +76,6 @@ export default function Header() {
               unoptimized
             />
           </span>
-          <span className="text-[7px] uppercase leading-tight tracking-[0.22em] md:text-[8px] md:tracking-[0.28em]">
-            Resort Bali
-          </span>
         </Link>
 
         <nav
