@@ -20,7 +20,6 @@ export default function Home() {
             controls={false}
             disablePictureInPicture
             disableRemotePlayback
-            poster="/hero/BR0A9586.jpg"
             aria-hidden="true"
             tabIndex={-1}
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
