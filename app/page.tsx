@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Intro from "@/components/Intro";
 import WhyUs from "@/components/WhyUs";
 import BookingSection from "@/components/BookingSection";
@@ -10,15 +9,24 @@ export default function Home() {
     <main className="relative w-full">
       {/* Hero Section */}
       <section id="hero" className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Video (loops silently, no controls) */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/hero/BR0A9586.jpg"
-            alt="Covered terrace with lounge seating overlooking the tropical gardens at L'escapade Resort"
-            fill
-            className="object-cover"
-            priority
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
+            poster="/hero/BR0A9586.jpg"
+            aria-hidden="true"
+            tabIndex={-1}
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/background.webm" type="video/webm" />
+          </video>
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0" style={{ backgroundColor: 'rgba(48, 37, 30, 0.52)' }}></div>
         </div>
